@@ -1,7 +1,7 @@
 import React from "react"
 
 const App = () => {
-  const [data, setData] = React.useState(null)
+  const [, setData] = React.useState(null)
   React.useEffect(() => {
     fetch(`${process.env.PORT || "http://localhost:3001"}`)
       .then((res) => res.json())
