@@ -1,9 +1,9 @@
 import React from "react"
 
 const App = () => {
-  const [, setData] = React.useState(null)
+  const [data, setData] = React.useState(null)
   React.useEffect(() => {
-    fetch(`${process.env.PORT || "http://localhost:3001"}`)
+    fetch(`${process.env.PORT || "http://localhost:3001/api"}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)
@@ -11,7 +11,11 @@ const App = () => {
       })
       .catch((e) => console.log(e))
   }, [])
-  return <div className='App'></div>
+  return (
+    <div className='App'>
+      <h1>{data || "Loading"}</h1>
+    </div>
+  )
 }
 
 export default App
